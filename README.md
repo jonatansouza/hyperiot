@@ -14,7 +14,7 @@ This business network defines:
 `registerThirdPartServiceOnDevice, removeThirdPartServiceOnDevice, grantThirdPartServicePermitionOnDevice`
 
 **Event**
-`SampleEvent`
+`AccessEvent`
 
 Device are owned by a Owner, and the value property on a device can be modified by submitting a register or remove transaction. Third Part Services can access data if they are registered on allowedUser on device.
 
@@ -65,7 +65,7 @@ Submit a `grantThirdPartServicePermitionOnDevice` transaction:
 }
 ```
 
-After submitting this transaction, you should now see the transaction in the Transaction Registry if the service is allowed to get data from this device.
+After submitting this transaction, you should now see the transaction in the Transaction Registry `AccessEvent` will be fired and access flag to set access to true or false to service is allowed to get data from this device.
 
 Submit a `registerThirdPartServiceOnDevice` transaction:
 

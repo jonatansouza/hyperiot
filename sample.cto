@@ -39,3 +39,8 @@ transaction grantThirdPartServicePermitionOnDevice {
   --> ThirdPartService thirdPartService
   --> Device device
 }
+event AccessEvent {
+  --> ThirdPartService thirdPartService
+  --> Device device
+  o Boolean access
+}

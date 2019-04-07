@@ -58,7 +58,14 @@ async function removeThirdPartServiceOnDevice(tx) {  // eslint-disable-line no-u
  */
 async function grantThirdPartServicePermitionOnDevice(tx) {  // eslint-disable-line no-unused-vars
     const allowedUsers = tx.device.allowedUsers;
-    if(!allowedUsers.includes(tx.thirdPartService)){
-        throw new Error('Third Party Service is not allowed for this device');
+    let access = false
+    if(allowedUsers.includes(tx.thirdPartService)){
+        access = true;
     }
+    // Emit an event asset.
+    let event = getFactory().newEvent('org.example.basic', 'AccessEvent');
+    event.thirdPartService = tx.thirdPartService
+    event.device = tx.device;
+    event.access = access;
+    emit(event);
 }
